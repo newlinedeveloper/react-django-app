@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
-import django_heroku
+# import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -27,7 +27,7 @@ SECRET_KEY = 'jg^$(lbjb*3-+cv(88ngpb4xb=6vbvxj*1i)%m!*c2(e_i6%b8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://parkzap-assignment.herokuapp.com',]
+ALLOWED_HOSTS = ['parkzap-assignment.herokuapp.com', '127.0.0.1:8000']
 
 
 # Application definition
@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'whitenoise.runserver_nostatic',
+    # 'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 
     'rest_framework',
@@ -56,7 +56,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -127,7 +127,7 @@ USE_TZ = True
 
 
 # Configure app for Heroku deployment
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
@@ -140,5 +140,5 @@ STATICFILES_DIRS = [
     
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
-STATICFILES_STORAGE = "whitenoise.django.GzipManifestStaticFilesStorage"
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
