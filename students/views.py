@@ -1,5 +1,6 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
+from django.core.mail import send_mail
 from rest_framework import status
 
 from .models import Student
@@ -16,11 +17,19 @@ def students_list(request):
 
     elif request.method == 'POST':
         serializer = StudentSerializer(data=request.data)
+        
         if serializer.is_valid():
             serializer.save()
+            subject = 'Conformation Mail'
+            message = 'Welcome '+request.data['name']+', Now, Your account has been created successfully'
+            recepient = request.data['email']
+            send_mail(subject, message, 'veerasolaiyappan@gmail.com', [recepient], fail_silently = False)
             return Response(status=status.HTTP_201_CREATED)
             
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
 
 @api_view(['PUT', 'DELETE'])
 def students_detail(request, pk):

@@ -19,7 +19,7 @@ class NewStudentModal extends Component {
     var title = "Editing Student";
     var button = <Button onClick={this.toggle}>Edit</Button>;
     if (create) {
-      title = "Creating New Student";
+      title = "New Register Form";
 
       button = (
         <Button
