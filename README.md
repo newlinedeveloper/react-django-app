@@ -39,17 +39,11 @@ Now, add the needed Djano dependencies:
 pip install django djangorestframework django-cors-headers
 ```
 
-Great, just need to run the project now. For this, `cd` into the django-react-logrocket folder and run:
 
-```bash
-python manage.py runserver
-```
-
-That's it. Access the address http://localhost:8000/api/students/ and check for the API up and running.
 
 ### Running the React project
 
-First, `cd` the students-fe directory and run:
+First install node dependecies :
 
 ```bash
 npm install
@@ -58,6 +52,11 @@ npm install
 Then, you just need to run the app via:
 
 ```bash
-npm start
+npm run build
 ```
 
+Great, just need to run the project now. 
+
+```bash
+python manage.py runserver
+```
